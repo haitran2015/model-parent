@@ -1,0 +1,17 @@
+*.idea
+*.idea/**
+*.iml
+*.ipr
+target
+*.project
+*.classpath
+*.iws
+rebel.xml
+*.log
+*.log.gz
+**/.settings/**
+*.settings/**
+/.settings
+.settings
+**/nb*.xml
+**/testResults/**
