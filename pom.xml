@@ -2,8 +2,105 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.lab.model</groupId>
   <artifactId>model-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>model-parent</name>
   <description>model-parent</description>
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<scm>
+		<connection>scm:git:https://github.com/haitran2015/model-parent.git</connection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<repositories>
+		<repository>
+			<id>model-artifactory-release</id>
+			<name>model-releases</name>
+			<url>http://localhost:8081/artifactory/devinterne-release-local</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>model-artifactory-remote</id>
+			<name>model-remote</name>
+			<url>http://localhost:8081/artifactory/remote-repos</url>
+		</repository>
+
+		<repository>
+			<id>model-artifactory-snapshots</id>
+			<name>model-snapshots</name>
+			<url>http://localhost:8081/artifactory/devinterne-snapshot-local</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>central</id>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<name>Internal Mirror of Central Repository</name>
+			<url>http://localhost:8081/artifactory/libs-release</url>
+		</repository>
+
+		<repository>
+			<id>snapshots</id>
+			<name>Internal Mirror of Central Repository for Snapshots</name>
+			<url>http://localhost:8081/artifactory/libs-snapshot</url>
+		</repository>
+
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Internal Mirror of Central Plugins Repository</name>
+			<url>http://localhost:8081/artifactory/simple/plugins-release</url>
+		</pluginRepository>
+
+		<pluginRepository>
+			<id>model-artifactory-remote</id>
+			<name>model-remote</name>
+			<url>http://localhost:8081/artifactory/remote-repos</url>
+		</pluginRepository>
+
+	</pluginRepositories>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>model-artifactory-snapshots</id>
+			<name>model-artifactory-snapshot</name>
+			<url>http://localhost:8081/artifactory/devinterne-snapshot-local</url>
+		</snapshotRepository>
+		<repository>
+			<id>model-artifactory-release</id>
+			<name>model-artifactory-release</name>
+			<url>http://localhost:8081/artifactory/devinterne-release-local</url>
+		</repository>
+	</distributionManagement>
+
+	<!-- Some plugins version must be set to avoid regression with upgrades -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.9.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
